@@ -23,15 +23,15 @@ npm run build && npm start
 1) Jelentkezz be a Vercelre: https://vercel.com
 2) Új projekt importálása: "Add New..." → "Project" → Importáld a helyi repo-t GitHub-ba, majd válaszd ki.
 	- Framework: Next.js (automatikus felismerés)
-	- Root Directory: `honlap` (ha a monorepó gyökere más)
 	- Build & Output: alapértelmezett (`npm run build`, output: `.vercel/output`/`.next`)
 3) Deploy gomb. Az első build után kapsz egy `https://...vercel.app` címet.
 
 Alternatíva: Vercel CLI
 
 ```bash
-npm i -g vercel
-vercel
+# Ha a `vercel` parancs nem található, használhatod az npx-et:
+npx vercel login
+npx vercel
 ```
 
 ## Hasznos
