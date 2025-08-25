@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -20,6 +20,10 @@ export const metadata: Metadata = {
       { url: "/kepek/Dani Honlap Apr 16 2025.jpg", width: 1200, height: 630, alt: "Mátrai A-frame vendégház" },
     ],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F5F1E6",
 };
 
 export default function RootLayout({

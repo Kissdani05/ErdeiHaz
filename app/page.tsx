@@ -11,7 +11,7 @@ export default function Home() {
       <main className={styles.main}>
         {/* HERO */}
         <section id="home" className={`${styles.section} ${styles.hero}`}>
-          <div className={styles.heroWrap}>
+          <div className={`container ${styles.heroWrap}`}>
             <div className={styles.heroText}>
               <h1 className={styles.h1}>Modern nyugalom az erdő szélén</h1>
               <p className={styles.lead}>Távol a zajtól, közel a természethez.</p>
@@ -27,6 +27,7 @@ export default function Home() {
               fill
               priority
               sizes="100vw"
+              fetchPriority="high"
               className={styles.heroImage}
             />
             </div>
@@ -35,6 +36,7 @@ export default function Home() {
 
         {/* USP */}
         <section id="usp" className={styles.section}>
+          <div className="container">
           <h2 className={styles.h2}>A ház röviden</h2>
           <ul className={styles.uspList}>
             <li><PeopleIcon aria-hidden /><span>2 fő</span></li>
@@ -48,19 +50,22 @@ export default function Home() {
             <li><JacuzziIcon aria-hidden /><span>Jakuzzi</span></li>
             <li><SaunaIcon aria-hidden /><span>Infraszauna</span></li>
           </ul>
-          <div className={styles.mediaRow}>
+      <div className={styles.mediaRow}>
             <Image
               src="/kepek/Dani Honlap Apr 16 2025 (1).jpg"
               alt="Erdei kilátás az A-keretből"
               width={1400}
               height={900}
               className={styles.media}
+        loading="lazy"
             />
           </div>
+      </div>
         </section>
 
         {/* RÓLUNK */}
         <section id="rolunk" className={styles.section}>
+          <div className="container">
           <h2 className={styles.h2}>Rólunk</h2>
           <blockquote className={styles.pullQuote}><strong>„Kicsim”</strong> – egy hely, ahol újra egymásra hangolódtok.</blockquote>
           <p className={styles.text}>Romantikus, páros elvonulás a Mátrában – lelassulás és természetközeli élmény.</p>
@@ -71,12 +76,15 @@ export default function Home() {
               width={1400}
               height={900}
               className={styles.media}
+              loading="lazy"
             />
+          </div>
           </div>
         </section>
 
         {/* FELSZERELTSÉG */}
         <section id="felszereltseg" className={styles.section}>
+          <div className="container">
           <h2 className={styles.h2}>Felszereltség és szolgáltatások</h2>
           <div className={styles.features}>
             <div className={styles.featureCard}>
@@ -88,7 +96,7 @@ export default function Home() {
                 width={1200}
                 height={800}
                 className={styles.media}
-              />
+              loading="lazy" />
             </div>
             <div className={styles.featureCard}>
               <h3 className={styles.h3}>Wellness</h3>
@@ -99,14 +107,14 @@ export default function Home() {
                   width={1200}
                   height={800}
                   className={styles.media}
-                />
+                loading="lazy" />
                 <Image
                   src="/kepek/Pihentető Infraszauna.jpg"
                   alt="Wellness – infraszauna"
                   width={1200}
                   height={800}
                   className={styles.media}
-                />
+                loading="lazy" />
               </div>
             </div>
             <div className={styles.featureCard}>
@@ -119,7 +127,7 @@ export default function Home() {
                   width={1200}
                   height={800}
                   className={styles.media}
-                />
+                loading="lazy" />
                 <Image
                   src="/kepek/Erdei Túrák.jpg"
                   alt="Ösvény & kerítés az erdőben"
@@ -130,14 +138,16 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </div>
         </section>
 
         {/* GALÉRIA */}
         <section id="galeria" className={styles.section}>
+          <div className="container">
           <h2 className={styles.h2}>Galéria</h2>
           <p className={styles.text}>Pillants bele a ház és az erdő világába.</p>
           <div className={styles.ctas}>
-            <a className={styles.secondary} href="/kepek/Dani Honlap Image.png" download>Képek letöltése</a>
+            <a className={styles.secondary} href="/galeria.zip" download aria-label="Galéria képek letöltése ZIP fájlban">Képek letöltése</a>
           </div>
           <div className={styles.galleryGrid}>
             {/* 1 */}
@@ -226,59 +236,100 @@ export default function Home() {
               <figcaption>Az erdő ölelésében megbúvó ház.</figcaption>
             </figure>
           </div>
+          </div>
         </section>
 
         {/* LÁTNIVALÓK */}
-    <section id="latnivalok" className={styles.section}>
-          <h2 className={styles.h2}>Környék – Látnivalók és éttermek</h2>
-          <p className={styles.text}>
-            Erdei séták, közeli kilátók, termálfürdő, helyi gasztro.
-          </p>
-          <div className={styles.features}>
-            <div className={styles.sights}>
-      <div className={styles.sightCard}><TrailIcon aria-hidden /> Reggeli séta</div>
-      <div className={styles.sightCard}><ViewIcon aria-hidden /> Délutáni túra a kilátóhoz</div>
-      <div className={styles.sightCard}><FireplaceIcon aria-hidden /> Esti tűzrakás</div>
-      <div className={styles.sightCard}><SpaIcon aria-hidden /> Fürdőzés a közeli termálban</div>
-      <div className={styles.sightCard}><FoodIcon aria-hidden /> Gasztrotúra</div>
+        <section id="latnivalok" className={styles.section}>
+          <div className="container">
+            <h2 className={styles.h2}>Környék – Látnivalók és éttermek</h2>
+            <p className={styles.text}>
+              Erdei séták, közeli kilátók, termálfürdő, helyi gasztro.
+            </p>
+            <div className={styles.features}>
+              <div className={styles.sights}>
+                <div className={styles.sightCard}><TrailIcon aria-hidden /> Reggeli séta</div>
+                <div className={styles.sightCard}><ViewIcon aria-hidden /> Délutáni túra a kilátóhoz</div>
+                <div className={styles.sightCard}><FireplaceIcon aria-hidden /> Esti tűzrakás</div>
+                <div className={styles.sightCard}><SpaIcon aria-hidden /> Fürdőzés a közeli termálban</div>
+                <div className={styles.sightCard}><FoodIcon aria-hidden /> Gasztrotúra</div>
+              </div>
+              <Image
+                src="/kepek/Erdei Túrák.jpg"
+                alt="Közeli erdei ösvény"
+                width={1400}
+                height={900}
+                className={styles.media}
+                loading="lazy"
+              />
             </div>
-            <Image
-              src="/kepek/Erdei Túrák.jpg"
-              alt="Közeli erdei ösvény"
-              width={1400}
-              height={900}
-              className={styles.media}
-            />
           </div>
         </section>
 
         {/* ÁRAK & FOGLALÁS */}
         <section id="arak" className={styles.section}>
+          <div className="container">
           <h2 className={styles.h2}>Árak és foglalás</h2>
           <div className={styles.pricingWrap}>
+            <form className={styles.form} action={process.env.NEXT_PUBLIC_BOOKING_URL || undefined} method="get">
+              <div className={styles.formWrap}>
+                <div className={styles.fieldGrid}>
+                  <label>
+                    Név
+                    <input name="name" type="text" placeholder="Vezetéknév Keresztnév" required />
+                  </label>
+                  <label>
+                    E‑mail
+                    <input name="email" type="email" placeholder="te@pelda.hu" required />
+                  </label>
+                  <label>
+                    Érkezés
+                    <input name="from" type="date" required />
+                  </label>
+                  <label>
+                    Távozás
+                    <input name="to" type="date" required />
+                  </label>
+                </div>
+                <label>
+                  Üzenet (opcionális)
+                  <textarea name="message" rows={4} placeholder="Kérdésed, megjegyzés…" />
+                </label>
+                <label className={styles.checkbox}>
+                  <input type="checkbox" required />
+                  Elfogadom az ÁSZF‑et és az Adatkezelést
+                </label>
+                <div className={styles.ctas}>
+                  <button className={styles.primary} type="submit">Küldés</button>
+                </div>
+              </div>
+            </form>
             <aside className={styles.priceCard}>
               <h3 className={styles.h3}>Árak</h3>
               <p>Hétköznap: 38 000 Ft/éj</p>
               <p>Hétvége: 45 000 Ft/éj</p>
               <p>Minimum 2 éj • 3+ éj kedvezmény</p>
               <div className={styles.ctas}>
-                <a className={styles.primary} href={process.env.NEXT_PUBLIC_BOOKING_URL || "#"} target="_blank" rel="noopener noreferrer">Foglalás</a>
+                <a className={styles.secondary} href={process.env.NEXT_PUBLIC_BOOKING_URL || "#"} target="_blank" rel="noopener noreferrer">Foglalás</a>
+              </div>
+              <div style={{marginTop:12}}>
+                <Image
+                  src="/kepek/Dani Honlap Jun 25 2025.jpg"
+                  alt="Terasz – erdei kapcsolat"
+                  width={1200}
+                  height={800}
+                  className={styles.media}
+                  loading="lazy"
+                />
               </div>
             </aside>
-            <div>
-              <Image
-                src="/kepek/Dani Honlap Jun 25 2025.jpg"
-                alt="Terasz – erdei kapcsolat"
-                width={1200}
-                height={800}
-                className={styles.media}
-              />
-            </div>
+          </div>
           </div>
         </section>
 
         {/* GYIK */}
         <section id="gyik" className={styles.section}>
+          <div className="container">
           <h2 className={styles.h2}>GYIK</h2>
           <div className={styles.faq}>
             <Accordion title="Parkoló van?">Igen, a ház mellett.</Accordion>
@@ -286,10 +337,12 @@ export default function Home() {
             <Accordion title="Kisállat?">Nem.</Accordion>
             <Accordion title="Érkezés/Távozás?">Check‑in 15:00, check‑out 11:00.</Accordion>
           </div>
+          </div>
         </section>
 
         {/* KAPCSOLAT */}
         <section id="kapcsolat" className={`${styles.section} ${styles.contact}`}>
+          <div className="container">
           <h2 className={styles.h2}>Kapcsolat</h2>
           <p className={styles.text}>Kérdés esetén írj bátran.</p>
           <ul className={styles.contactList}>
@@ -314,10 +367,11 @@ export default function Home() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44662.67228634752!2d19.951!3d47.86!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4740f67f1f4b46a9%3A0x400c4290c1e28e0!2zTcOhdHJh!5e0!3m2!1shu!2shu!4v1699999999999"
             />
           </div>
+          </div>
         </section>
       </main>
       <footer className={styles.footer}>
-        <div className={styles.footerInner}>
+        <div className={`container ${styles.footerInner}`}>
           <div>© {new Date().getFullYear()} Kicsim</div>
           <nav className={styles.footerNav}>
             <a href="#arak">Árak</a>
