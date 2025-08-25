@@ -17,6 +17,7 @@ const NAV_LINKS = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("home");
+  const [scrolled, setScrolled] = useState(false);
 
   const observer = useMemo(() => {
     if (typeof window === "undefined") return null;
@@ -50,8 +51,15 @@ export default function Header() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 2);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.isScrolled : ""}`}>
       <div className={styles.headerInner}>
         <a href="#home" className={styles.brand} onClick={() => setOpen(false)}>
           Kicsim

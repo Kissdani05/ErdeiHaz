@@ -33,8 +33,20 @@ h2{font-size:clamp(26px,3vw,36px); line-height:1.2}
 h3 { font-size: 24px; line-height: 32px; }
 
 /* Rhythm */
-.container{max-width:1200px; margin-inline:auto; padding-inline:24px}
-section{scroll-margin-top:96px; padding-block: clamp(56px,8vw,104px)}
+.container{ max-width:1200px; margin-inline:auto; padding-inline:24px }
+section{ scroll-margin-top:88px; padding-block: clamp(56px,8vw,104px) }
+section > .container{ display:block }
+
+/* Global image rules */
+img{ max-inline-size:100%; block-size:auto; display:block; border-radius:14px }
+.figure, .img-wrap{ overflow:hidden; border-radius:14px }
+.figure img{ width:100%; height:100%; object-fit:cover }
+
+/* Split grid for two-column sections */
+.split{ display:grid; gap:28px }
+@media(min-width:900px){ .split{ grid-template-columns: 1fr 1fr } }
+.ratio-3-2{ aspect-ratio:3/2 }
+.maxh-480{ max-height:480px }
 
 /* Buttons */
 .btn{display:inline-flex;gap:.5rem;align-items:center;
@@ -44,10 +56,12 @@ section{scroll-margin-top:96px; padding-block: clamp(56px,8vw,104px)}
 .btn:hover{transform:translateY(-1px); box-shadow:0 8px 20px #0001}
 
 /* Masonry helper (if needed outside module) */
-.gallery{columns:1; column-gap:16px}
-@media(min-width:640px){.gallery{columns:2}}
-@media(min-width:1024px){.gallery{columns:3}}
-.gallery img{width:100%; break-inside:avoid; margin:0 0 16px; border-radius:14px}
+.gallery{ columns:1; column-gap:16px }
+@media(min-width:640px){ .gallery{ columns:2 } }
+@media(min-width:1024px){ .gallery{ columns:3 } }
+.gallery figure{ break-inside:avoid; margin:0 0 16px }
+.gallery img{ width:100%; display:block; border-radius:14px }
+.gallery figcaption{ font-size:14px; opacity:.75; margin-top:6px }
 
 @media (max-width: 600px) {
   body { font-size: 16px; line-height: 26px; }
