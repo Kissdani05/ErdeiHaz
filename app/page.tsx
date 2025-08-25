@@ -1,94 +1,58 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+const kepUtVonalak = [
+  "Csend Image from Dani.jpg",
+  "Erdei Álmok.jpeg",
+  "Erdei Túrák.jpg",
+  "Jacuzzi for Relaxation.jpg",
+  "Pihentető Infraszauna.jpg",
+  "Equipped Kitchen.jpg",
+  "Honlap Dani.jpg",
+  "Honlap Dani.png",
+  "Dani Honlap June 25 2025.jpg",
+  "Dani Honlap July 27 2025.jpg",
+].map((n) => `/kepek/${n}`);
+
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <header className={styles.hero}>
+          <h1>Erdei Álmok – Vendégház</h1>
+          <p>Csend, nyugalom és kikapcsolódás a természet szívében.</p>
+          <a className={styles.primary} href="#kapcsolat">Foglalás és elérhetőség</a>
+        </header>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+  <section className={styles.section}>
+          <h2>Galéria</h2>
+          <div className={styles.grid}>
+            {kepUtVonalak.map((src, i) => (
+              <div key={src} className={styles.card}>
+                <Image
+                  src={src}
+                  alt={`Galéria kép ${i + 1}`}
+                  width={600}
+                  height={400}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+  <section id="kapcsolat" className={`${styles.section} ${styles.contact}`}>
+          <h2>Kapcsolat</h2>
+          <p>
+            Érdeklődés és foglalás: {" "}
+            <a href="mailto:info@erdeialmok.hu">info@erdeialmok.hu</a> vagy {" "}
+            <a href="tel:+3612345678">+36 1 234 5678</a>
+          </p>
+        </section>
       </main>
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <span>© {new Date().getFullYear()} Erdei Álmok – Vendégház</span>
       </footer>
     </div>
   );
