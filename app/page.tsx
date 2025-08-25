@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import Header from "./components/Header";
 import { PeopleIcon, NoWifiIcon, ParkingIcon, ACIcon, FireplaceIcon, CoffeeIcon, TerraceIcon, GrillIcon, JacuzziIcon, SaunaIcon, TrailIcon, ViewIcon, SpaIcon, FoodIcon } from "./components/Icons";
 import Accordion from "./components/Accordion";
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -296,11 +299,14 @@ export default function Home() {
                   <textarea name="message" rows={4} placeholder="Kérdésed, megjegyzés…" />
                 </label>
                 <label className={styles.checkbox}>
-                  <input type="checkbox" required />
+                  <input id="aszf" type="checkbox" required onChange={(e)=>{
+                    const btn = document.getElementById('submitButton') as HTMLButtonElement | null;
+                    if(btn) btn.disabled = !e.currentTarget.checked;
+                  }} />
                   Elfogadom az ÁSZF‑et és az Adatkezelést
                 </label>
                 <div className={styles.ctas}>
-                  <button className={styles.primary} type="submit">Küldés</button>
+                  <button id="submitButton" className={styles.primary} type="submit" disabled>Küldés</button>
                 </div>
               </div>
             </form>
@@ -351,9 +357,11 @@ export default function Home() {
             </li>
             <li>
               E‑mail: <a href="mailto:info@erdeihaz.hu">info@erdeihaz.hu</a>
+              <button className="btn btn--secondary" onClick={(e)=>{e.preventDefault(); navigator.clipboard.writeText('info@erdeihaz.hu');}} aria-label="E-mail cím vágólapra másolása" style={{marginLeft:8}}>Másolás</button>
             </li>
             <li>
               Telefon: <a href="tel:+36301234567">+36 30 123 4567</a>
+              <button className="btn btn--secondary" onClick={(e)=>{e.preventDefault(); navigator.clipboard.writeText('+36301234567');}} aria-label="Telefonszám vágólapra másolása" style={{marginLeft:8}}>Másolás</button>
             </li>
           </ul>
           <div className={styles.mapPlaceholder} aria-label="Térkép">

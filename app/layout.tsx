@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({ variable: "--font-playfair", subsets: ["latin"] });
+const cormorant = Cormorant_Garamond({ variable: "--font-cormorant", subsets: ["latin"], weight: ["300","400","500","600","700"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -33,8 +33,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu">
-      <body className={`${playfair.variable} ${inter.variable}`}>
+  <body className={`${cormorant.variable} ${inter.variable}`}>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LodgingBusiness',
+              name: 'Kicsim – erdei vendégház a Mátrában',
+              description:
+                'Modern faház jakuzzival és infraszaunával az erdő szélén. Digitális detox, csönd, romantikus pihenés – 2 főre.',
+              url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+              telephone: '+36 30 123 4567',
+              address: {
+                '@type': 'PostalAddress',
+                addressCountry: 'HU',
+                addressRegion: 'Heves',
+                addressLocality: 'Mátra',
+              },
+              image: [
+                `${process.env.NEXT_PUBLIC_SITE_URL || ''}/kepek/Dani%20Honlap%20Apr%2016%202025.jpg`,
+              ],
+              amenities: [
+                'Jacuzzi',
+                'Infra szauna',
+                'Kandalló',
+                'Parkoló',
+                'Kávégép',
+                'Terasz',
+                'Grill/Bogrács',
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );
