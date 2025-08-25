@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Ez egy [Next.js](https://nextjs.org) + TypeScript projekt, amelyet a `create-next-app` hozott létre.
 
-## Getting Started
+## Fejlesztés helyben
 
-First, run the development server:
+1) Indítás fejlesztői módban
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2) Nyisd meg: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Fő oldal: `app/page.tsx`, globális stílusok: `app/globals.css`. A képek a `public/kepek` mappában vannak.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
+```bash
+npm run build && npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Telepítés a Vercelre (ajánlott)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1) Jelentkezz be a Vercelre: https://vercel.com
+2) Új projekt importálása: "Add New..." → "Project" → Importáld a helyi repo-t GitHub-ba, majd válaszd ki.
+	- Framework: Next.js (automatikus felismerés)
+	- Root Directory: `honlap` (ha a monorepó gyökere más)
+	- Build & Output: alapértelmezett (`npm run build`, output: `.vercel/output`/`.next`)
+3) Deploy gomb. Az első build után kapsz egy `https://...vercel.app` címet.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Alternatíva: Vercel CLI
 
-## Deploy on Vercel
+```bash
+npm i -g vercel
+vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Hasznos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Képek elérése: `/kepek/FILE_NEV` a `public` mappából
+- Meta adatok: `app/layout.tsx` (`metadata` export)
+- Stílus: CSS modul `app/page.module.css`
