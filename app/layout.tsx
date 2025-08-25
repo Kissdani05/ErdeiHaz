@@ -6,6 +6,7 @@ const playfair = Playfair_Display({ variable: "--font-playfair", subsets: ["lati
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: "Kicsim – erdei vendégház a Mátrában | páros elvonulás",
   description:
     "Modern faház jakuzzival és infraszaunával az erdő szélén. Digitális detox, csönd, romantikus pihenés – 2 főre.",
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
       "Modern faház jakuzzival és infraszaunával az erdő szélén. Digitális detox, csönd, romantikus pihenés – 2 főre.",
     type: "website",
     locale: "hu_HU",
+    images: [
+      { url: "/kepek/Dani Honlap Apr 16 2025.jpg", width: 1200, height: 630, alt: "Mátrai A-frame vendégház" },
+    ],
   },
 };
 

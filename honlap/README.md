@@ -23,21 +23,15 @@ npm run build && npm start
 1) Jelentkezz be a Vercelre: https://vercel.com
 2) Új projekt importálása: "Add New..." → "Project" → Importáld a helyi repo-t GitHub-ba, majd válaszd ki.
 	- Framework: Next.js (automatikus felismerés)
+	- Root Directory: `honlap` (ha a monorepó gyökere más)
 	- Build & Output: alapértelmezett (`npm run build`, output: `.vercel/output`/`.next`)
 3) Deploy gomb. Az első build után kapsz egy `https://...vercel.app` címet.
-
-4) Környezeti változók beállítása (erősen ajánlott)
-	- `NEXT_PUBLIC_SITE_URL`: a produkciós domain (pl. https://kicsim-matra.vercel.app vagy a saját domain). Ez kell ahhoz, hogy az Open Graph képek és linkek abszolút URL-lel menjenek a közösségi megosztásokban.
-	- `NEXT_PUBLIC_BOOKING_URL`: külső foglalási URL. Az "Foglalás" gomb ide mutat.
-
-	Helyben másold le a `.env.local.example` fájlt `.env.local` néven és töltsd ki.
 
 Alternatíva: Vercel CLI
 
 ```bash
-# Ha a `vercel` parancs nem található, használhatod az npx-et:
-npx vercel login
-npx vercel
+npm i -g vercel
+vercel
 ```
 
 ## Hasznos
@@ -45,5 +39,3 @@ npx vercel
 - Képek elérése: `/kepek/FILE_NEV` a `public` mappából
 - Meta adatok: `app/layout.tsx` (`metadata` export)
 - Stílus: CSS modul `app/page.module.css`
-- `metadataBase` (app/layout.tsx): az OG/Twitter képek abszolút URL-éhez kell. Ha nincs beállítva, dev módban figyelmeztetést kapsz és a `localhost` kerül az URL elé.
-- A beépített űrlap eltávolítva; foglalás külső gombbal történik (`NEXT_PUBLIC_BOOKING_URL`).

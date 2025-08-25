@@ -1,13 +1,14 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Design tokens */
+  --bg: #F5F1E6; /* bézs/kasmír */
+  --ink: #3C2F27; /* sötétbarna */
+  --accent: #9AA27C; /* mohazöld */
+  --btn: #6D5B46; /* gomb háttér */
+  --btn-ink: #FFFFFF;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Legacy mappings for existing styles */
+  --background: var(--bg);
+  --foreground: var(--ink);
 }
 
 html,
@@ -19,9 +20,11 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 * {
@@ -39,4 +42,14 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Headline families */
+h1, h2, h3 { font-family: var(--font-playfair), Georgia, serif; letter-spacing: -0.02em; }
+
+/* Anchor offset for sticky header */
+section { scroll-margin-top: 96px; }
+
+@media (max-width: 600px) {
+  body { font-size: 16px; line-height: 26px; }
 }
