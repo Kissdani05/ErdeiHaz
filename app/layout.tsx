@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "hu_HU",
     images: [
-      { url: "/kepek/Dani Honlap Apr 16 2025.jpg", width: 1200, height: 630, alt: "Mátrai A-frame vendégház" },
+      { url: "/hero.webp", width: 1200, height: 630, alt: "Mátrai A-frame vendégház" },
     ],
   },
 };
@@ -53,7 +53,7 @@ export default function RootLayout({
                 addressLocality: 'Mátra',
               },
               image: [
-                `${process.env.NEXT_PUBLIC_SITE_URL || ''}/kepek/Dani%20Honlap%20Apr%2016%202025.jpg`,
+                `${process.env.NEXT_PUBLIC_SITE_URL || ''}/hero.webp`,
               ],
               amenities: [
                 'Jacuzzi',

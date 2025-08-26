@@ -31,6 +31,7 @@
 }
 
 .main { display: flex; flex-direction: column; gap: 0; grid-row-start: 2; }
+.page { padding-top: 72px; }
 
 html {
   scroll-behavior: smooth;
@@ -38,8 +39,7 @@ html {
 .hero { position: relative; padding-top: 8px; min-height: 70vh; }
 .heroWrap { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; min-height: 70vh; }
 .heroText { order: 1; }
-.heroImageWrap { order: 2; position: relative; width: 100%; aspect-ratio: 16/9; max-height: 70vh; border-radius: 16px; overflow: hidden; }
-.heroImage { object-fit: cover; }
+.heroImageWrap { order: 2; position: relative; width: 100%; aspect-ratio: 16/9; max-height: 70vh; border-radius: 14px; overflow: hidden; }
 
 .h1 { font-family: var(--font-cormorant); color: var(--brown); max-width: 18ch; }
 
@@ -94,11 +94,11 @@ html {
   padding: 12px 20px;
   border-radius: 12px;
 }
-.section { padding-block: clamp(80px, 12svh, 120px); }
+.section { padding-block: clamp(56px, 8vw, 104px); }
 
-/* sticky header */
+/* header (fixed) */
 .header {
-  position: sticky; top: 0; z-index: 50;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: 72px; display: flex; align-items: center;
   background: rgba(245,241,230,.85);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
@@ -125,8 +125,9 @@ html {
   padding: 10px 14px;
   border-radius: 10px;
   color: var(--brown);
+  transition: background .2s, box-shadow .2s, transform .2s;
 }
-.active { background: color-mix(in oklab, var(--beige) 85%, white); color: var(--brown); }
+.active { background: color-mix(in srgb, var(--mocha), transparent 20%); color: var(--brown); text-decoration: underline; text-underline-offset: 6px; }
 
 .burger {
   display: none;
@@ -135,6 +136,7 @@ html {
   border-radius: 8px;
   border: 1px solid var(--gray-alpha-200);
   background: var(--background);
+  transition: background .2s, border-color .2s, transform .2s;
 }
 .burger span { display: block; height: 2px; margin: 6px; background: var(--mocha); }
 /* usp */
@@ -143,7 +145,7 @@ html {
 .uspList li svg { flex-shrink: 0; }
 .pullQuote { font-size: 24px; line-height: 32px; color: var(--brown); margin-bottom: 12px; }
 .mediaRow { margin-top: 12px; }
-.media { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--gray-alpha-200); }
+.media { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--gray-alpha-200); object-fit: cover; }
 
 /* features */
 .features { display: grid; grid-template-columns: 1fr; gap: 24px; }
@@ -206,7 +208,7 @@ html {
 
 /* pricing */
 .pricingWrap { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 12px; }
-.priceCard { background: color-mix(in srgb, var(--accent), transparent 86%); border-radius: 16px; padding: 24px; }
+.priceCard { background: color-mix(in srgb, var(--accent), transparent 86%); border: 1px solid #0001; border-radius: 16px; padding: 24px; }
 .price { font-size: 28px; font-weight: 700; color: var(--brown); }
 
 /* FAQ accordion */
@@ -243,6 +245,22 @@ html {
     text-decoration: underline;
     text-underline-offset: 4px;
   }
+
+  .navLink:hover {
+    background: color-mix(in srgb, var(--mocha), transparent 20%);
+    box-shadow: 0 4px 14px #0001;
+    transform: translateY(-1px);
+  }
+
+  .brand:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .burger:hover {
+  background: color-mix(in srgb, var(--mocha), transparent 25%);
+    border-color: var(--gray-alpha-200);
+  }
 }
 
 @media (max-width: 600px) {
@@ -262,6 +280,11 @@ html {
     font-size: 14px;
     height: 40px;
     padding: 0 16px;
+  }
+
+  .form .ctas button,
+  .form .ctas a {
+    width: 100%;
   }
 
   .secondary {
@@ -288,7 +311,7 @@ html {
   .sights { grid-template-columns: 1fr; }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .heroWrap { grid-template-columns: 1.1fr 1fr; }
   .heroText { order: 1; }
   .heroImageWrap { order: 2; }
